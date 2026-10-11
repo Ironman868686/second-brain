@@ -1109,6 +1109,410 @@ footer{
 </body></html>
 </script>
 
+<!-- Eingebettete Seite: Alex Hormozi – Sales -->
+<script type="text/html" id="page-hormozi-sales">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>body{margin:0}</style></head><body>
+<title>Alex Hormozi – Sales</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,420;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/*
+  Layout: a single reading column (max 46rem) under a sticky mini-index of
+  numbered pills; each concept opens with a hand-drawn SVG recreation of its
+  course slide, then prose, closing in two distinct callouts (Kernaussage /
+  Bezug). Diagrams live in their own horizontally-scrollable frame so the
+  page body itself never scrolls sideways.
+*/
+:root{
+  --bg:#F4F5F7;
+  --surface:#FFFFFF;
+  --surface-2:#ECEEF2;
+  --fg:#1B2238;
+  --muted:#5B6478;
+  --accent:#C2410C;
+  --accent-2:#3F8079;
+  --border:#DADEE6;
+  --font-display:'Fraunces',"Iowan Old Style","Palatino Linotype",serif;
+  --font-body:'Work Sans',-apple-system,"Segoe UI",sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10182B;
+    --surface:#18223D;
+    --surface-2:#1E294A;
+    --fg:#ECE6D8;
+    --muted:#9AA3BC;
+    --accent:#F29A5E;
+    --accent-2:#6FA8A0;
+    --border:#2B3657;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10182B;
+  --surface:#18223D;
+  --surface-2:#1E294A;
+  --fg:#ECE6D8;
+  --muted:#9AA3BC;
+  --accent:#F29A5E;
+  --accent-2:#6FA8A0;
+  --border:#2B3657;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  padding-inline:20px;
+  padding-block:0 64px;
+}
+.wrap{max-width:46rem; margin-inline:auto;}
+.wide{max-width:58rem;}
+
+a{color:var(--accent);}
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:700;
+  text-wrap:balance;
+  line-height:1.15;
+  margin:0;
+}
+
+.mono{
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.72rem;
+  font-weight:600;
+}
+
+/* ---- header ---- */
+header.hero{
+  padding-block:52px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+header.hero .eyebrow{color:var(--accent);}
+header.hero h1{font-size:clamp(1.9rem,5vw,2.6rem);}
+header.hero p.lede{
+  font-size:1.05rem;
+  line-height:1.65;
+  color:var(--muted);
+  max-width:40rem;
+}
+.source-note{
+  font-size:.85rem;
+  color:var(--muted);
+  border-left:3px solid var(--border);
+  padding-left:12px;
+  line-height:1.6;
+}
+.source-note b{color:var(--fg); font-weight:600;}
+
+/* ---- sticky index ---- */
+nav.toc{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:5;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  padding-block:10px;
+  margin-bottom:12px;
+}
+nav.toc .row{
+  max-width:46rem;
+  margin-inline:auto;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+nav.toc .row::-webkit-scrollbar{display:none;}
+nav.toc a{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  color:var(--fg);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px 14px 6px 8px;
+  font-family:var(--font-mono);
+  font-size:.74rem;
+}
+nav.toc a span.n{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px; height:18px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--surface);
+  font-size:.68rem;
+  font-weight:700;
+}
+
+/* ---- concept sections ---- */
+.concept{
+  padding-block:44px;
+  border-top:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  scroll-margin-top:60px;
+}
+.concept:first-of-type{border-top:none;}
+.concept-head{display:flex; flex-direction:column; gap:6px;}
+.concept-head .eyebrow{color:var(--accent);}
+.concept-head h2{font-size:clamp(1.3rem,3.6vw,1.7rem);}
+
+.prose p{line-height:1.7; margin:0 0 .9em;}
+.prose p:last-child{margin-bottom:0;}
+.prose b{color:var(--fg);}
+
+.variant{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:18px 18px 20px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+.variant-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--muted);
+}
+.variant-label .badge{
+  width:20px;height:20px;
+  border-radius:6px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--accent);
+  font-weight:700;
+}
+
+figure{margin:0;}
+.diagram-frame{
+  overflow-x:auto;
+  border-radius:10px;
+  background:var(--surface-2);
+  padding:14px 10px;
+}
+.diagram-frame svg{display:block; height:auto;}
+figcaption{
+  margin-top:10px;
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.callout{
+  border-radius:12px;
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.callout .label{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.callout p{margin:0; line-height:1.65; font-size:.96rem;}
+.callout.kern{
+  background:color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+.callout.kern .label{color:var(--accent);}
+.callout.bezug{
+  background:color-mix(in srgb, var(--accent-2) 12%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--accent-2) 35%, var(--border));
+}
+.callout.bezug .label{color:var(--accent-2);}
+
+/* table (Konzept 3) */
+.table-frame{overflow-x:auto; border-radius:10px; border:1px solid var(--border);}
+table{border-collapse:collapse; width:100%; min-width:460px;}
+th,td{
+  text-align:left;
+  padding:11px 16px;
+  font-size:.92rem;
+  border-bottom:1px solid var(--border);
+}
+thead th{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  background:var(--surface-2);
+}
+tbody td:first-child{color:var(--muted);}
+tbody td:last-child{color:var(--fg); font-weight:500;}
+tr:last-child td{border-bottom:none;}
+
+footer{
+  padding-top:40px;
+  border-top:1px solid var(--border);
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:.85rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+@media (max-width:520px){
+  .variant{padding:14px 14px 16px;}
+}
+
+.callout.use{background:var(--surface);border:1px solid var(--border);}
+.callout.use .label{color:var(--muted);}
+ul.points{margin:0;padding:0;list-style:none;display:grid;gap:10px;}
+ul.points li{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;line-height:1.55;}
+ul.points li b{color:var(--accent);font-family:var(--font-mono);font-size:.78rem;margin-right:8px;}
+.tag-guess{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);}
+</style>
+
+<header class="hero wrap">
+  <span class="mono eyebrow">Sales · Mentor-Material</span>
+  <h1>Alex Hormozi — Sales</h1>
+  <p class="lede">Folien aus dem Sales-Training von Alex Hormozi, ausgewertet aus Screenshots: Nurture, Aufbau eines Sales-Teams und das Angebot an Bewerber.</p>
+  <p class="source-note">Quelle: Folien-Screenshots (Einträge <b>26–28</b> der Sammlung). Alles, was über den Wortlaut der Folien hinausgeht, ist als <b>Deutung</b> oder <b>Annahme</b> gekennzeichnet.</p>
+</header>
+
+<nav class="toc" aria-label="Einträge">
+  <div class="row">
+    <a href="#k1"><span class="n">26</span>Nurture</a>
+    <a href="#k2"><span class="n">27</span>Karrierepfad</a>
+    <a href="#k3"><span class="n">28</span>Angebot</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="concept" id="k1">
+    <div class="concept-head">
+      <span class="mono eyebrow">Eintrag 26 · LT Nurture</span>
+      <h2>Frequenz und Qualität</h2>
+    </div>
+    <figure>
+      <div class="diagram-frame"><svg viewBox="0 0 640 230" width="640" style="min-width:440px;max-width:100%;color:var(--fg)" role="img" aria-label="Vergleich: Jede Woche eine halbherzige Mail gegen eine Woche Pause und dann vier Mails mit gutem Inhalt.">
+<text x="250" y="28" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="currentColor" opacity=".65">WOCHE 1</text>
+<text x="470" y="28" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="currentColor" opacity=".65">WOCHE 2</text>
+<line x1="150" y1="40" x2="620" y2="40" stroke="currentColor" stroke-opacity=".2"/>
+<text x="20" y="88" font-size="13" fill="currentColor">Jede Woche</text><text x="20" y="106" font-size="13" fill="currentColor">halbherzig</text>
+<rect x="236" y="78" width="28" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
+<text x="250" y="122" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65">schwach</text>
+<rect x="456" y="78" width="28" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
+<text x="470" y="122" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65">schwach</text>
+<line x1="20" y1="140" x2="620" y2="140" stroke="currentColor" stroke-opacity=".12"/>
+<text x="20" y="178" font-size="13" fill="currentColor">Pause, dann</text><text x="20" y="196" font-size="13" fill="currentColor">4× mit Wert</text>
+<rect x="206" y="166" width="88" height="30" rx="6" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.3" stroke-dasharray="4 4"/>
+<text x="250" y="186" text-anchor="middle" font-size="11" fill="currentColor" opacity=".65">Pause</text>
+<g fill="var(--accent)"><rect x="406" y="168" width="26" height="22" rx="4"/><rect x="440" y="168" width="26" height="22" rx="4"/><rect x="474" y="168" width="26" height="22" rx="4"/><rect x="508" y="168" width="26" height="22" rx="4"/></g>
+<text x="470" y="212" text-anchor="middle" font-size="10.5" fill="var(--accent)" font-weight="600">gut</text>
+</svg></div>
+      <figcaption>Die Folie-Logik als Skizze: lieber eine Woche Pause und dann viermal mit gutem Inhalt als jede Woche halbherzig.</figcaption>
+    </figure>
+    <ul class="points">
+      <li><b>1</b>Man kann nie zu oft mailen.</li>
+      <li><b>2</b>Und auch keinen zu langen Content machen.</li>
+      <li><b>3</b>Nur zu langweilig oder wertlos kann er sein.</li>
+      <li><b>4</b>Besser eine Woche gar nicht mailen und in der nächsten Woche viermal mit gutem Inhalt, als jede Woche halbherzig.</li>
+    </ul>
+    <div class="callout kern">
+      <span class="label">Kernaussage</span>
+      <p>Der Maßstab ist Wert, nicht Menge. Frequenz und Länge sind kein Problem, solange der Inhalt nützlich ist. Qualität schlägt Regelmäßigkeit: Man darf pausieren, wenn gerade kein guter Inhalt da ist.</p>
+    </div>
+    <div class="callout bezug">
+      <span class="label">Einordnung</span>
+      <p>Das ist Hormozis Position, keine belegte Gewissheit. Besonders „nie zu oft“ ist eine starke Behauptung, und die Folie nennt dafür keine Zahlen. Im deutschen B2B-Umfeld kommen rechtliche Grenzen dazu: Werbe-Mails brauchen eine Einwilligung (Double-Opt-in), und eine hohe Frequenz erhöht das Risiko von Abmeldungen und Spam-Markierungen.</p>
+    </div>
+    <div class="callout use">
+      <span class="label">Anwendung</span>
+      <p>Testen statt glauben: zwei Frequenzen gegeneinander laufen lassen (wöchentlich gegen mehrere Impulse in einer Woche mit anschließender Pause) und Öffnungen, Klicks, Abmeldungen und Terminbuchungen vergleichen. Gibt es einen starken Schmerzpunkt oder ein gutes Testimonial, lohnt ein Schwung an Mails, gibt es nichts Gutes, lieber pausieren. Tiefe Inhalte dürfen länger sein, wenn der Einstieg stimmt.</p>
+    </div>
+  </section>
+
+  <section class="concept" id="k2">
+    <div class="concept-head">
+      <span class="mono eyebrow">Eintrag 27 · Getting More Salespeople</span>
+      <h2>Karrierepfad: SDR- und Closer-Linie</h2>
+    </div>
+    <p class="source-note">Die Folie trägt die Überschrift „Interview Process“, zeigt aber einen Karrierepfad statt eines Interviewablaufs. Vermutlich soll sie Bewerbern zeigen, wohin sie sich entwickeln können. <span class="tag-guess">Deutung</span></p>
+    <figure>
+      <div class="diagram-frame"><svg viewBox="0 0 900 350" width="900" style="min-width:680px;max-width:100%;color:var(--fg)" role="img" aria-label="Karrierepfad: Zwei Linien, SDR und Closer, jeweils vier Stufen. Vom Senior SDR führt ein Pfeil zum Junior Closer. Vom Closer Manager führen vier Pfeile zu den Zielen Sales Strategy, Dir Sales Advisory Practice, Dir Sales bei einer Portfolio Company und Dealmaker."><defs><marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" opacity=".6"/></marker><marker id="aA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs><text x="30" y="38" font-family="var(--font-mono)" font-size="11" letter-spacing=".06em" fill="currentColor" opacity=".6">SDR-LINIE</text><text x="110" y="178" font-family="var(--font-mono)" font-size="11" letter-spacing=".06em" fill="currentColor" opacity=".6">CLOSER-LINIE</text><rect x="30" y="50" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="95.0" y="74.5" text-anchor="middle" font-size="13" fill="currentColor">Jr SDR</text><line x1="162" y1="70" x2="187" y2="70" stroke="currentColor" stroke-opacity=".6" stroke-width="1.4" marker-end="url(#aG)"/><rect x="190" y="50" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="255.0" y="74.5" text-anchor="middle" font-size="13" fill="currentColor">SDR</text><line x1="322" y1="70" x2="347" y2="70" stroke="currentColor" stroke-opacity=".6" stroke-width="1.4" marker-end="url(#aG)"/><rect x="350" y="50" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="415.0" y="74.5" text-anchor="middle" font-size="13" fill="currentColor">Sr SDR</text><line x1="482" y1="70" x2="507" y2="70" stroke="currentColor" stroke-opacity=".6" stroke-width="1.4" marker-end="url(#aG)"/><rect x="510" y="50" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="575.0" y="74.5" text-anchor="middle" font-size="13" fill="currentColor">SDR Manager</text><rect x="30" y="190" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="95.0" y="214.5" text-anchor="middle" font-size="13" fill="currentColor">Jr Closer</text><line x1="162" y1="210" x2="187" y2="210" stroke="currentColor" stroke-opacity=".6" stroke-width="1.4" marker-end="url(#aG)"/><rect x="190" y="190" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="255.0" y="214.5" text-anchor="middle" font-size="13" fill="currentColor">Closer</text><line x1="322" y1="210" x2="347" y2="210" stroke="currentColor" stroke-opacity=".6" stroke-width="1.4" marker-end="url(#aG)"/><rect x="350" y="190" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="415.0" y="214.5" text-anchor="middle" font-size="13" fill="currentColor">Sr Closer</text><line x1="482" y1="210" x2="507" y2="210" stroke="currentColor" stroke-opacity=".6" stroke-width="1.4" marker-end="url(#aG)"/><rect x="510" y="190" width="130" height="40" rx="8" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/><text x="575.0" y="214.5" text-anchor="middle" font-size="13" fill="currentColor">Closer Manager</text><path d="M415,92 V141 H95 V187" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#aA)"/><text x="255" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="var(--accent)">Wechsel in die Closer-Linie</text><text x="690" y="96" font-family="var(--font-mono)" font-size="11" letter-spacing=".06em" fill="currentColor" opacity=".6">ZIELE NACH CLOSER MANAGER</text><rect x="690" y="108" width="190" height="44" rx="8" fill="var(--surface)" stroke="var(--accent-2)" stroke-width="1.4"/><text x="785" y="134" text-anchor="middle" font-size="11.5" fill="currentColor">Sales Strategy, Holding Co</text><line x1="642" y1="210" x2="687" y2="130" stroke="var(--accent-2)" stroke-width="1.6" marker-end="url(#aG)"/><rect x="690" y="168" width="190" height="44" rx="8" fill="var(--surface)" stroke="var(--accent-2)" stroke-width="1.4"/><text x="785" y="194" text-anchor="middle" font-size="11.5" fill="currentColor">Dir Sales, Advisory Practice</text><line x1="642" y1="210" x2="687" y2="190" stroke="var(--accent-2)" stroke-width="1.6" marker-end="url(#aG)"/><rect x="690" y="228" width="190" height="44" rx="8" fill="var(--surface)" stroke="var(--accent-2)" stroke-width="1.4"/><text x="785" y="247" text-anchor="middle" font-size="11.5" fill="currentColor">Dir Sales,</text><text x="785" y="262" text-anchor="middle" font-size="11.5" fill="currentColor">At a Portfolio Company</text><line x1="642" y1="210" x2="687" y2="250" stroke="var(--accent-2)" stroke-width="1.6" marker-end="url(#aG)"/><rect x="690" y="288" width="190" height="44" rx="8" fill="var(--surface)" stroke="var(--accent-2)" stroke-width="1.4"/><text x="785" y="314" text-anchor="middle" font-size="11.5" fill="currentColor">Dealmaker</text><line x1="642" y1="210" x2="687" y2="310" stroke="var(--accent-2)" stroke-width="1.6" marker-end="url(#aG)"/></svg></div>
+      <figcaption>Zwei Laufbahnen mit je vier Stufen. Wer als Sr SDR stark ist, wechselt zum Jr Closer. Vom Closer Manager führen vier Wege weiter. Auf der Folie steht außerdem: Die Rollen im Unternehmen sind dynamisch, den aktuellen Karrierepfad soll man beim Manager erfragen.</figcaption>
+    </figure>
+    <div class="callout kern">
+      <span class="label">Kernaussage</span>
+      <p>Die Folie verkauft nicht den Job, sondern die Entwicklung: Vertrieb reicht von der Einstiegsrolle bis in Strategie und Führung. SDR ist der Einstieg, Closer die nächste Stufe.</p>
+    </div>
+    <div class="callout bezug">
+      <span class="label">Einordnung</span>
+      <p><b>Zwei Stufen vor dem Abschluss:</b> SDR (vermutlich Setting und Terminierung) und Closer sind getrennte Rollen. Die Folie definiert SDR nicht, das ist eine Annahme. <b>Interne Beförderung als Pipeline:</b> Nachwuchs kommt aus dem eigenen Team, nicht nur von außen.</p>
+    </div>
+    <div class="callout use">
+      <span class="label">Anwendung</span>
+      <p>Einen sichtbaren Entwicklungspfad aufschreiben, mit den Stufen und den Kriterien für den Aufstieg. Das ist ein starkes Argument beim Recruiting und bei der Bindung. Prüfen, ob eine Trennung von Terminierung und Abschluss entlasten würde, besonders wenn die Funnel-Zahlen zeigen, dass die Engstelle vor dem Call liegt. Das hängt von Volumen und Teamgröße ab.</p>
+    </div>
+  </section>
+
+  <section class="concept" id="k3">
+    <div class="concept-head">
+      <span class="mono eyebrow">Eintrag 28 · Getting More Salespeople</span>
+      <h2>Das Angebot und die Erwartungen</h2>
+    </div>
+    <p class="source-note">Die Folie nennt nur Stichpunkte ohne Erklärung. Die rechte Spalte ist mein Verständnis und keine Aussage der Folie. <span class="tag-guess">Deutung</span></p>
+    <div class="table-frame">
+      <table>
+        <thead><tr><th>#</th><th>Punkt auf der Folie</th><th>Verständnis</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Setting proper expectations</td><td>Der Fortschritt flacht mit der Zeit ab, aber die Fähigkeiten steigen weiter. Bewerber sollen das vorher wissen, damit sie nach dem schnellen Anfangserfolg nicht enttäuscht sind.</td></tr>
+          <tr><td>2</td><td>Alternate title &amp; comp</td><td>Je nach Stufe oder Typ andere Titel und Vergütungsmodelle. Genaueres steht nicht auf der Folie.</td></tr>
+          <tr><td>3</td><td>Cumulative closes</td><td>Abschlüsse zählen kumulativ, vermutlich ist der Aufstieg an die Gesamtzahl gekoppelt (Annahme).</td></tr>
+          <tr><td>4</td><td>Don’t obsess about sale comp</td><td>Nicht auf die Provision fixieren, und doch ist sie laut Folie der stärkste Hebel. Vermutlich: gezielt gestalten, aber nicht überkomplex machen. Das bleibt unklar.</td></tr>
+          <tr><td>5</td><td>How to figure it out</td><td>Rückwärts rechnen, wie viele Vollzeitkräfte (FTE) man für ein Ziel braucht, vom Skill-Level bis zu den nötigen Aktionen wie Calls und Terminen.</td></tr>
+          <tr><td>6</td><td>Give best leads to the best closers (again)</td><td>Die besten Leads gehen an die besten Closer. „Again“ deutet darauf hin, dass es schon an anderer Stelle vorkam.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout bezug">
+      <span class="label">Einordnung</span>
+      <p>Punkt 5 ist Kapazitätsplanung aus dem Funnel heraus: Erst wenn man die nötigen Abschlüsse kennt, lässt sich der Personalbedarf ableiten. Punkt 6 widerspricht einer gleichmäßigen Lead-Verteilung, er priorisiert den Ertrag. Der Preis: Schwächere Closer bekommen weniger gute Leads und entwickeln sich schwerer, ein Zielkonflikt mit dem Trainingsgedanken.</p>
+    </div>
+    <div class="callout use">
+      <span class="label">Anwendung</span>
+      <p>Den Personalbedarf von hinten rechnen: gewünschte Abschlüsse pro Monat, dann Show-Rate und Abschlussquote, dann Kapazität pro Closer. Vor einer Regel zur Lead-Verteilung testen, ob stärkere Leads bei stärkeren Leuten tatsächlich mehr Umsatz bringen. Zu Höhe und Modell der Vergütung sagt die Folie nichts, das muss intern geklärt werden.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Noch offen aus der Serie: Offer, VSL, Script und weitere Folien zum Interview Process.</span>
+  </footer>
+</main>
+
+</body></html>
+</script>
+
 <script>
 /* =========================================================
    SECOND BRAIN – Startdaten
@@ -1156,6 +1560,75 @@ function applyAddons(s){
       s.addonsApplied.push(a.id);
     }
   });
+  /* Einmalig: Kurs "Unlimited" gehört zum Thema Mindset. Legt die Kategorie an (falls es sie noch nicht gibt)
+     und verschiebt den Kurs-Eintrag dorthin. Ist er schon in einer anderen Kachel, bleibt alles unverändert. */
+  if(!s.addonsApplied.includes("mindset-kurs")){
+    const disp = s.tiles.find(t => t.id === "dispenza");
+    const entry = disp && (disp.entries || []).find(e => e.link === "page:dispenza");
+    const alreadyMoved = s.tiles.some(t => t !== disp && (t.entries || []).some(e => e.link === "page:dispenza"));
+    if(entry && !alreadyMoved){
+      let mind = s.tiles.find(t => t.id === "mindset" || (t.title || "").trim().toLowerCase() === "mindset");
+      if(!mind){
+        mind = { id:"mindset", type:"kategorie", icon:"📚", hue:245, title:"Mindset",
+                 desc:"Denkweise, mentale Modelle und Kurse zum Thema Mindset.", entries:[] };
+        s.tiles.push(mind);
+      }
+      disp.entries = disp.entries.filter(e => e !== entry);
+      mind.entries.push(entry);
+    }
+    s.addonsApplied.push("mindset-kurs");
+  }
+  /* Einmalig: Mentor "Alex Hormozi" und Kategorie "Sales" mit dem Sales-Training (Einträge 26–28) */
+  if(!s.addonsApplied.includes("hormozi-sales")){
+    const isName = (t, n) => (t.title || "").trim().toLowerCase() === n;
+    if(!s.tiles.some(t => t.id === "alex-hormozi" || isName(t, "alex hormozi")))
+      s.tiles.push({ id:"alex-hormozi", type:"mentor", icon:"💼", hue:40, title:"Alex Hormozi",
+                     desc:"Sales-Training und Teamaufbau: Folien, Konzepte und Notizen.", entries:[] });
+    const exists = s.tiles.some(t => (t.entries || []).some(e => e.link === "page:hormozi-sales"));
+    if(!exists){
+      let sales = s.tiles.find(t => t.id === "sales" || isName(t, "sales"));
+      if(!sales){
+        sales = { id:"sales", type:"kategorie", icon:"🎯", hue:10, title:"Sales",
+                  desc:"Vertrieb, Closing, Nurture und Teamaufbau.", entries:[] };
+        s.tiles.push(sales);
+      }
+      sales.entries.push({ id:"hormozi-sales-26-28", title:"Alex Hormozi – Sales-Training (Einträge 26–28)",
+        text:"Nurture: Frequenz und Qualität · Karrierepfad SDR/Closer · Angebot und Erwartungen an Bewerber.",
+        link:"page:hormozi-sales", tag:"Folien", created:Date.now() });
+    }
+    s.addonsApplied.push("hormozi-sales");
+  }
+  /* Einmalig: Kurse in Themen-Kategorien beim zugehörigen Mentor mitzählen */
+  if(!s.addonsApplied.includes("mentor-refs")){
+    [["page:dispenza", "dispenza"], ["page:hormozi-sales", "alex-hormozi"]].forEach(([link, mid]) => {
+      const mentor = s.tiles.find(t => t.id === mid);
+      if(!mentor) return;
+      s.tiles.forEach(t => (t.entries || []).forEach(e => { if(e.link === link && t !== mentor && !e.mentor) e.mentor = mid; }));
+    });
+    s.addonsApplied.push("mentor-refs");
+  }
+  /* Einmalig: Mentor "Shi Heng Yi" und sein Kurs "Shaolin Online" unter Mindset (Inhalte folgen) */
+  if(!s.addonsApplied.includes("shi-heng-yi")){
+    const isName = (t, n) => (t.title || "").trim().toLowerCase() === n;
+    let mentor = s.tiles.find(t => t.id === "shi-heng-yi" || isName(t, "shi heng yi"));
+    if(!mentor){
+      mentor = { id:"shi-heng-yi", type:"mentor", icon:"🥋", hue:10, title:"Shi Heng Yi",
+                 desc:"Shaolin-Meister: Kurse und Konzepte zu Mindset, Disziplin und Fokus.", entries:[] };
+      s.tiles.push(mentor);
+    }
+    if(!s.tiles.some(t => (t.entries || []).some(e => e.id === "shaolin-online"))){
+      let mind = s.tiles.find(t => t.id === "mindset" || isName(t, "mindset"));
+      if(!mind){
+        mind = { id:"mindset", type:"kategorie", icon:"📚", hue:245, title:"Mindset",
+                 desc:"Denkweise, mentale Modelle und Kurse zum Thema Mindset.", entries:[] };
+        s.tiles.push(mind);
+      }
+      mind.entries.push({ id:"shaolin-online", title:"Shaolin Online (Kurs)",
+        text:"Die Inhalte aus den Kurs-Screenshots werden hier ergänzt.", link:"", tag:"Kurs",
+        mentor:mentor.id, created:Date.now() });
+    }
+    s.addonsApplied.push("shi-heng-yi");
+  }
   return s;
 }
 
@@ -1211,12 +1684,22 @@ const safeUrl = u => {
 const app = document.getElementById("app");
 let query = "";
 
+/* Einträge, die eine Kachel anzeigt: die eigenen plus Einträge aus anderen Kacheln, die mit
+   entry.mentor auf diese Kachel verweisen (z. B. ein Kurs in "Mindset", der zu "Joe Dispenza" gehört). */
+function entriesOf(t){
+  const own = (t.entries || []).map(e => ({ e, owner:t, via:null }));
+  const ref = state.tiles.filter(x => x !== t)
+    .flatMap(x => (x.entries || []).filter(e => e.mentor === t.id).map(e => ({ e, owner:x, via:x })));
+  return own.concat(ref);
+}
+let lastTile = null;
+
 /* ---------- Routing ---------- */
 function route(){
   const id = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
   if(id.startsWith("page/")){ renderPage(id.slice(5)); window.scrollTo(0,0); return; }
   const tile = state.tiles.find(t => t.id === id);
-  tile ? renderTile(tile) : renderHome();
+  if(tile){ lastTile = tile.id; renderTile(tile); } else renderHome();
   window.scrollTo(0,0);
 }
 window.addEventListener("hashchange", route);
@@ -1227,7 +1710,7 @@ window.addEventListener("hashchange", route);
 function renderPage(name){
   const src = document.getElementById("page-" + name);
   const owner = state.tiles.find(t => t.entries.some(e => e.link === "page:" + name));
-  const back = h("button", { class:"back", onclick:() => { location.hash = owner ? "#/" + encodeURIComponent(owner.id) : ""; } }, "← Zurück");
+  const back = h("button", { class:"back", onclick:() => { const back = (lastTile && state.tiles.some(t => t.id === lastTile)) ? lastTile : (owner ? owner.id : null); location.hash = back ? "#/" + encodeURIComponent(back) : ""; } }, "← Zurück");
   if(!src){ app.replaceChildren(back, h("div", { class:"empty" }, "Diese Seite ist nicht im Dashboard hinterlegt.")); return; }
   const frame = h("iframe", { sandbox:"allow-same-origin", title:name,
     style:"width:100%;height:calc(100vh - 150px);min-height:520px;border:1px solid var(--line);border-radius:14px;background:var(--surface)" });
@@ -1255,11 +1738,11 @@ function greeting(){
 function matches(t){
   if(!query) return true;
   const q = query.toLowerCase();
-  return [t.title, t.desc, ...t.entries.flatMap(e => [e.title, e.text, e.tag])]
+  return [t.title, t.desc, ...entriesOf(t).map(x => x.e).flatMap(e => [e.title, e.text, e.tag])]
     .some(s => (s || "").toLowerCase().includes(q));
 }
 function tileCard(t){
-  const n = t.entries.length;
+  const n = entriesOf(t).length;
   return h("button", { class:"tile", style:`--h:${t.hue}`, onclick:() => location.hash = "#/" + encodeURIComponent(t.id) },
     h("div", { class:"icon" }, t.icon || "📁"),
     h("h3", {}, t.title),
@@ -1309,7 +1792,7 @@ function renderSections(){
 
 /* ---------- Detailansicht ---------- */
 function renderTile(t){
-  const entries = [...t.entries].sort((a,b) => b.created - a.created);
+  const entries = entriesOf(t).sort((a,b) => b.e.created - a.e.created);
   app.replaceChildren(
     h("button", { class:"back", onclick:() => location.hash = "" }, "← Zurück zur Übersicht"),
     h("div", { class:"detail-head", style:`--h:${t.hue}` },
@@ -1328,11 +1811,11 @@ function renderTile(t){
       )
     ),
     entries.length
-      ? h("div", { class:"entries" }, entries.map(e => entryCard(t, e)))
+      ? h("div", { class:"entries" }, entries.map(x => entryCard(x.owner, x.e, x.via)))
       : h("div", { class:"empty" }, "Noch keine Einträge. Lege mit „+ Eintrag“ den ersten an.")
   );
 }
-function entryCard(t, e){
+function entryCard(t, e, via = null){
   const url = e.link && safeUrl(e.link);
   return h("article", { class:"entry" },
     h("div", { class:"entry-top" },
@@ -1341,11 +1824,12 @@ function entryCard(t, e){
         h("button", { class:"btn small", onclick:() => openEntryDlg(t, e) }, "Bearbeiten"),
         state.tiles.length > 1 ? h("button", { class:"btn small", onclick:() => openMoveDlg(t, e) }, "Verschieben") : null,
         h("button", { class:"btn small danger", onclick:async () => {
-          if(await askConfirm("Eintrag löschen?", { yes:"Löschen" })){ t.entries = t.entries.filter(x => x.id !== e.id); save(); renderTile(t); }
+          if(await askConfirm("Eintrag löschen?", { yes:"Löschen" })){ t.entries = t.entries.filter(x => x.id !== e.id); save(); route(); }
         } }, "✕")
       )
     ),
     h("div", { class:"foot" },
+      via ? h("span", { class:"tag" }, `liegt in: ${via.title}`) : null,
       e.tag ? h("span", { class:"tag" }, e.tag) : null,
       url ? (/^https?:/i.test(url)
         ? h("a", { href:url, target:"_blank", rel:"noopener noreferrer" }, "Link öffnen ↗")
@@ -1395,7 +1879,7 @@ function saveEntry(){
   const f = entryForm, data = { title:f.title.value.trim(), text:f.text.value.trim(), link:f.link.value.trim(), tag:f.tag.value.trim() };
   if(editingEntry){ Object.assign(editingEntry, data); }
   else { entryParent.entries.push({ id: uid(), created: Date.now(), ...data }); }
-  save(); entryDlg.close(); renderTile(entryParent);
+  save(); entryDlg.close(); route();
 }
 
 /* Speichern per Button oder Enter – ohne echtes Formular-Submit (in Vorschau-Fenstern blockiert) */
@@ -1422,6 +1906,8 @@ document.getElementById("moveYes").addEventListener("click", () => {
   const target = state.tiles.find(x => x.id === document.getElementById("moveTarget").value);
   if(!t || !target) return;
   t.entries = t.entries.filter(x => x.id !== e.id);
+  if(t.type === "mentor" && !e.mentor) e.mentor = t.id;   /* bleibt beim Mentor mitgezählt */
+  if(e.mentor === target.id) delete e.mentor;              /* zurück zum Mentor: kein Verweis nötig */
   target.entries.push(e);
   save(); moveDlg.close(); location.hash = "#/" + encodeURIComponent(target.id);
 });
